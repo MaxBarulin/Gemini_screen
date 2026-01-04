@@ -1,0 +1,6 @@
+google-genai
+mss
+Pillow
+keyboard
+pyttsx3
+python-dotenv
