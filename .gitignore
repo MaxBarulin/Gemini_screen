@@ -13,7 +13,7 @@ __pycache__/
 *$py.class
 # C extensions
 *.so
-
+*.txt
 # Distribution / packaging
 .Python
 brow/
