@@ -3,20 +3,21 @@ import time
 from google import genai
 from google.genai import types
 from PIL import Image
-from dotenv import load_dotenv
 
-load_dotenv()
+# Global variable to store the key
+_API_KEY = None
+
+def set_api_key(key):
+    global _API_KEY
+    _API_KEY = key
 
 def get_api_key():
-    api_key = os.getenv("GEMINI_API_KEY")
-    if not api_key:
-        print("Error: GEMINI_API_KEY not found in .env file or environment variables.")
-        return None
-    return api_key
+    return _API_KEY
 
 def extract_text_from_image(image: Image.Image):
     api_key = get_api_key()
     if not api_key:
+        print("Error: API Key is not set.")
         return None
 
     client = genai.Client(api_key=api_key)
