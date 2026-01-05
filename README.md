@@ -1,4 +1,4 @@
-# Space Rangers 2 Screen Reader
+# Google Gemini screen capture with voiceover of the main text
 
 Инструмент для автоматического захвата экрана, распознавания текста с помощью Google Gemini API и озвучивания текста (Text-to-Speech) для игры "Космические рейнджеры 2".
 
