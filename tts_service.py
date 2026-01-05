@@ -15,7 +15,7 @@ def speak_text(text):
             #         engine.setProperty('voice', voice.id)
             #         break
             
-            engine.setProperty('rate', 175) # Slightly faster reading
+            engine.setProperty('rate', 260) # Increased speed (~1.5x)
             engine.say(text)
             engine.runAndWait()
         except Exception as e:

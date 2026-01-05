@@ -3,7 +3,7 @@ import time
 import os
 import sys
 from capture import capture_screen
-from ai_service import extract_text_from_image
+from ai_service import extract_text_from_image, set_api_key
 from tts_service import speak_text
 
 # Hotkey configuration
@@ -36,10 +36,17 @@ def main():
     print("==========================================")
     print("Space Rangers 2 AI Screen Reader")
     print("==========================================")
+    
+    # Get API Key from user
+    api_key = input("Please enter your Google Gemini API Key: ").strip()
+    if not api_key:
+        print("API Key cannot be empty. Exiting.")
+        return
+    set_api_key(api_key)
+    
     print(f"Hotkey: {CAPTURE_HOTKEY} to read screen")
     print(f"Exit:   {EXIT_HOTKEY} (or Ctrl+C in terminal)")
     print("==========================================")
-    print("Ensure .env file has GEMINI_API_KEY")
     
     keyboard.add_hotkey(CAPTURE_HOTKEY, on_trigger)
     
