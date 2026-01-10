@@ -25,17 +25,25 @@ def extract_text_from_image(image: Image.Image):
     # Prompt optimized for Space Rangers 2 text extraction
     prompt = """
     You are an AI assistant helping a visually impaired user play Space Rangers 2.
-    Look at this screenshot. Your task is to extract the main QUEST TEXT, STORY NARRATIVE, or DIALOGUE.
+    Look at this screenshot. Your task:
+
+    1. FIRST, extract the main QUEST TEXT, STORY NARRATIVE, or DIALOGUE following these rules:
+       - IGNORE UI elements (buttons, menus, "Back", "Forward", resource counts, dates)
+       - IGNORE ship status panels
+       - IGNORE maps or star charts
+       - FOCUS ONLY on the main block of text describing the situation, quest, or government dialogue
     
-    IGNORE:
-    - UI elements (buttons, menus, "Back", "Forward", resource counts, dates)
-    - Ship status panels
-    - Maps or star charts
+    2. THEN, analyze the extracted text:
+       - If it contains a QUEST, QUESTION, or TASK that requires player action
+       - BRIEFLY state the SOLUTION or RECOMMENDED ACTION in 1-2 sentences
+       - Keep solution concise and practical for gameplay
     
-    FOCUS ON:
-    - The main block of text describing the situation, quest, or government dialogue.
+    Output format:
+    - First line: Extracted text in Russian
+    - If solution is needed: New line with "Решение: [brief solution in Russian]"
+    - If no solution needed: Output ONLY the extracted text
     
-    Output ONLY the extracted text in Russian. Do not add "Here is the text" or markdown.
+    Do not add any other text, explanations, or markdown formatting.
     """
     
     try:
