@@ -23,16 +23,3 @@
 1.  Скачайте или скомпилируйте `SR2_Reader.exe`.
 2.  Запустите файл.
 3.  Введите API ключ в консоли.
-
-## Компиляция (для разработчиков)
-
-Для создания `.exe` файла используйте PyInstaller:
-
-```bash
-pyinstaller --onefile --version-file=version.txt --icon=i64.ico --name "SR2_Reader" --add-data "capture.py;." --add-data "ai_service.py;." --add-data "tts_service.py;." main.py
-```
-
-## Управление
-
-*   **Ctrl + L**: Прочитать текст с экрана.
-*   **Ctrl + Shift + Q**: Выход.
